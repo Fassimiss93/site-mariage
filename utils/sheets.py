@@ -15,8 +15,14 @@ FALLBACK    = "rsvp_data.csv"
 RSVP_COLS   = ["timestamp", "prenom", "nom", "presence", "nb_personnes", "regime", "message"]
 
 
+_last_error = ""
+
+def get_last_error() -> str:
+    return _last_error
+
 def _sheet():
     """Retourne la première feuille du Google Sheet, ou None."""
+    global _last_error
     try:
         import gspread
         creds = dict(st.secrets["gsheets"])
@@ -31,7 +37,8 @@ def _sheet():
         if not ws.row_values(1):
             ws.append_row(RSVP_COLS)
         return ws
-    except Exception:
+    except Exception as e:
+        _last_error = str(e)
         return None
 
 

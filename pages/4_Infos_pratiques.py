@@ -56,22 +56,28 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-# ── TRANSPORT ─────────────────────────────────────────────────────────────────
+# ── COMMENT NOUS REJOINDRE ────────────────────────────────────────────────────
 st.markdown("""
 <div style="background:white;border-radius:14px;padding:32px 36px;
             box-shadow:0 2px 16px rgba(0,0,0,0.07);margin-bottom:32px;
             border-top:4px solid #d5872d;">
     <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.8rem;
                font-weight:400;color:#2c2416;margin-bottom:6px;">
-        ✈️ Venir à Lomé
+        📍 Comment nous rejoindre
     </h3>
     <div style="width:30px;height:2px;background:#d5872d;margin-bottom:16px;"></div>
     <p style="font-family:'Raleway',sans-serif;font-weight:300;color:#5a5040;
               font-size:0.95rem;line-height:1.8;">
         <strong style="color:#2c2416;">Aéroport :</strong> Aéroport International Gnassingbé Eyadéma (LFW), Lomé<br>
         <strong style="color:#2c2416;">Transport :</strong> Taxis et VTC disponibles depuis l'aéroport.<br><br>
-        <!-- TODO: Ajoute des infos spécifiques sur le transport -->
-        Des informations complémentaires seront ajoutées prochainement.
+        <a href="https://www.google.com/maps/search/?api=1&query=6.19304,1.26689"
+           target="_blank"
+           style="display:inline-block;margin-top:8px;padding:10px 22px;
+                  background:#d5872d;color:white;border-radius:8px;
+                  font-family:'Raleway',sans-serif;font-weight:600;font-size:0.88rem;
+                  letter-spacing:0.05em;text-decoration:none;">
+            📍 Voir sur Google Maps
+        </a>
     </p>
 </div>
 """, unsafe_allow_html=True)
@@ -86,16 +92,14 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 faqs = [
-    ("Puis-je venir avec mes enfants ?",
-     "TODO: Réponse à compléter."),
-    ("Y aura-t-il un parking sur place ?",
-     "TODO: Réponse à compléter."),
     ("Comment confirmer ma présence ?",
-     "Rendez-vous dans l'onglet RSVP de ce site. Merci de confirmer votre présence avant le TODO."),
+     "Rendez-vous dans l'onglet RSVP de ce site et remplissez le formulaire de confirmation. Merci de confirmer votre présence avant le <strong style='color:#d5872d;'>18 juillet 2026</strong>."),
+    ("Puis-je venir avec mes enfants ?",
+     "Oui, les enfants sont les bienvenus ! Merci toutefois de le mentionner lors de votre confirmation de présence afin que nous puissions prévoir les dispositions nécessaires pour les accueillir dans les meilleures conditions."),
     ("Puis-je offrir un cadeau ?",
-     "TODO: Réponse à compléter."),
-    ("Comment vous contacter ?",
-     "TODO: Coordonnées de contact à ajouter."),
+     "Votre présence est, à nos yeux, le plus beau des cadeaux. Cependant, si vous souhaitez nous faire un présent, nous vous serions reconnaissants de privilégier une enveloppe, pour des raisons pratiques de logistique. Merci infiniment pour votre générosité."),
+    ("Vous avez d'autres questions ?",
+     "Pour toute question complémentaire, nous vous invitons à vous rapprocher directement des mariés qui se feront un plaisir de vous répondre."),
 ]
 
 for q, a in faqs:

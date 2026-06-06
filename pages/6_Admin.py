@@ -3,7 +3,7 @@ import pandas as pd
 import sys
 sys.path.insert(0, ".")
 from utils.styles import CSS, WEDDING_DATE_STR, LOCATION, nav_bar
-from utils.sheets import get_all_rsvps, storage_mode
+from utils.sheets import get_all_rsvps, storage_mode, get_last_error
 
 st.set_page_config(page_title="Admin — Adakou & Ata-Sé", page_icon="🔐", layout="wide", initial_sidebar_state="collapsed")
 st.markdown(CSS, unsafe_allow_html=True)
@@ -76,6 +76,9 @@ else:
         filtre = st.selectbox("Filtrer par présence", ["Tous", "✅ Présents", "❌ Absents", "🤔 Peut-être"])
     with col_f2:
         st.caption(f"Stockage : **{storage_mode()}**")
+        err = get_last_error()
+        if err:
+            st.error(f"Erreur Google Sheets : {err}")
 
     display = df.copy()
     if filtre != "Tous" and presence_col:
