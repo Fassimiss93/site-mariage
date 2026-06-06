@@ -26,6 +26,9 @@ def _sheet():
     try:
         import gspread
         creds = dict(st.secrets["gsheets"])
+        # Streamlit Cloud stocke parfois \n comme littéral au lieu de vrai saut de ligne
+        if "private_key" in creds:
+            creds["private_key"] = creds["private_key"].replace("\\n", "\n")
         gc = gspread.service_account_from_dict(creds)
         try:
             sh = gc.open(SHEET_NAME)
