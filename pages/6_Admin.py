@@ -1,7 +1,7 @@
+import sys, os
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import streamlit as st
 import pandas as pd
-import sys
-sys.path.insert(0, ".")
 from utils.styles import CSS, WEDDING_DATE_STR, LOCATION, nav_bar
 from utils.sheets import get_all_rsvps, storage_mode, get_last_error
 

@@ -1,6 +1,6 @@
+import sys, os
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import streamlit as st
-import sys
-sys.path.insert(0, ".")
 from utils.styles import CSS, WEDDING_DATE_STR, LOCATION, nav_bar
 
 st.set_page_config(page_title="Infos pratiques — Adakou & Ata-Sé", page_icon="ℹ️", layout="wide", initial_sidebar_state="collapsed")
@@ -29,29 +29,10 @@ st.markdown("""
     <div style="width:30px;height:2px;background:#d5872d;margin-bottom:16px;"></div>
     <p style="font-family:'Raleway',sans-serif;font-weight:300;color:#5a5040;
               font-size:0.95rem;line-height:1.8;">
-        <!-- TODO: Remplace par le dress code souhaité -->
-        Tenue élégante de mise. Couleurs à éviter : blanc et ivoire.<br><br>
-        Venez célébrer avec nous dans vos plus beaux atours !<br>
-        <strong style="color:#d5872d;">Code couleur suggéré :</strong> à préciser.
-    </p>
-</div>
-""", unsafe_allow_html=True)
-
-# ── HÉBERGEMENT ───────────────────────────────────────────────────────────────
-st.markdown("""
-<div style="background:white;border-radius:14px;padding:32px 36px;
-            box-shadow:0 2px 16px rgba(0,0,0,0.07);margin-bottom:24px;
-            border-top:4px solid #7b7551;">
-    <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.8rem;
-               font-weight:400;color:#2c2416;margin-bottom:6px;">
-        🏨 Hébergement
-    </h3>
-    <div style="width:30px;height:2px;background:#7b7551;margin-bottom:16px;"></div>
-    <p style="font-family:'Raleway',sans-serif;font-weight:300;color:#5a5040;
-              font-size:0.95rem;line-height:1.8;">
-        <!-- TODO: Ajoute des suggestions d'hôtels à Lomé -->
-        Des suggestions d'hébergement à Lomé seront bientôt disponibles.<br><br>
-        Pour tout renseignement, n'hésitez pas à contacter les mariés.
+        <strong style="color:#2c2416;">Tenue blanche avec un tabla.</strong><br><br>
+        Le tissu du tabla est disponible à la vente auprès des mariés :<br>
+        <strong style="color:#d5872d;">Femme :</strong> 3 000 FCFA &nbsp;·&nbsp;
+        <strong style="color:#d5872d;">Homme :</strong> 1 500 FCFA
     </p>
 </div>
 """, unsafe_allow_html=True)
@@ -68,15 +49,16 @@ st.markdown("""
     <div style="width:30px;height:2px;background:#d5872d;margin-bottom:16px;"></div>
     <p style="font-family:'Raleway',sans-serif;font-weight:300;color:#5a5040;
               font-size:0.95rem;line-height:1.8;">
-        <strong style="color:#2c2416;">Aéroport :</strong> Aéroport International Gnassingbé Eyadéma (LFW), Lomé<br>
-        <strong style="color:#2c2416;">Transport :</strong> Taxis et VTC disponibles depuis l'aéroport.<br><br>
+        <strong style="color:#2c2416;">Attiegou — Lomé (Togo)</strong><br>
+        Non loin du Lycée Attiegou (ex CEG Attiegou)<br>
+        et du Château d'eau d'Attiegougan.<br><br>
         <a href="https://www.google.com/maps/search/?api=1&query=6.19304,1.26689"
            target="_blank"
            style="display:inline-block;margin-top:8px;padding:10px 22px;
                   background:#d5872d;color:white;border-radius:8px;
                   font-family:'Raleway',sans-serif;font-weight:600;font-size:0.88rem;
                   letter-spacing:0.05em;text-decoration:none;">
-            📍 Voir sur Google Maps
+            📍 Voir la localisation sur Maps
         </a>
     </p>
 </div>
@@ -93,7 +75,7 @@ st.markdown("""
 
 faqs = [
     ("Comment confirmer ma présence ?",
-     "Rendez-vous dans l'onglet RSVP de ce site et remplissez le formulaire de confirmation. Merci de confirmer votre présence avant le <strong style='color:#d5872d;'>18 juillet 2026</strong>."),
+     "Rendez-vous dans l'onglet RSVP de ce site et remplissez le formulaire de confirmation. Merci de confirmer votre présence avant le <strong style='color:#d5872d;'>1er Août 2026</strong>."),
     ("Puis-je venir avec mes enfants ?",
      "Oui, les enfants sont les bienvenus ! Merci toutefois de le mentionner lors de votre confirmation de présence afin que nous puissions prévoir les dispositions nécessaires pour les accueillir dans les meilleures conditions."),
     ("Puis-je offrir un cadeau ?",

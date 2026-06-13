@@ -1,8 +1,14 @@
+import sys, os, base64
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import streamlit as st
 from datetime import date, datetime, timezone, timedelta
-import sys
-sys.path.insert(0, ".")
 from utils.styles import CSS, WEDDING_DATE_STR, COUPLE, LOCATION
+
+def _img_b64(path):
+    with open(path, "rb") as f:
+        return base64.b64encode(f.read()).decode()
+
+_couple_img = _img_b64(os.path.join(os.path.dirname(__file__), "assets", "couple.jpg"))
 
 st.set_page_config(
     page_title="Adakou & Ata-Sé — 29 Août 2026",
@@ -24,11 +30,20 @@ minutes = 59 - now.minute
 
 # ── HERO ──────────────────────────────────────────────────────────────────────
 st.markdown(f"""
-<div class="hero">
-    <p class="hero-eyebrow">Vous êtes cordialement invités au mariage de</p>
-    <h1 class="hero-names">Adakou <span class="hero-amp">&amp;</span> Ata-Sé</h1>
-    <div class="hero-ornament">✦ &nbsp; ✦ &nbsp; ✦</div>
-    <p class="hero-date">Le {WEDDING_DATE_STR} &nbsp;·&nbsp; {LOCATION}</p>
+<div class="hero" style="position:relative;overflow:hidden;">
+    <img src="data:image/jpeg;base64,{_couple_img}"
+         style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+                filter:blur(3px) brightness(0.45);opacity:0.6;transform:scale(1.05);"/>
+    <div style="position:relative;z-index:1;">
+        <p class="hero-eyebrow">Vous êtes cordialement invités au mariage traditionnel de</p>
+        <h1 class="hero-names" style="line-height:1.2;">
+            Adakou<br>
+            <span class="hero-amp">&amp;</span><br>
+            Ata-Sé
+        </h1>
+        <div class="hero-ornament">✦ &nbsp; ✦ &nbsp; ✦</div>
+        <p class="hero-date">Le {WEDDING_DATE_STR} &nbsp;·&nbsp; {LOCATION}</p>
+    </div>
 </div>
 """, unsafe_allow_html=True)
 

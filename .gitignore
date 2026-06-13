@@ -3,5 +3,4 @@ rsvp_data.csv
 __pycache__/
 *.pyc
 .env
-assets/
 venv/

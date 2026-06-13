@@ -33,11 +33,11 @@ body, .stApp { background-color: #f4f4f8; font-family: 'Raleway', sans-serif; }
 .hero-names {
     font-family: 'Cormorant Garamond', serif;
     font-size: clamp(3.2rem, 9vw, 6.5rem);
-    font-weight: 300; color: #f4f4f8;
-    margin: 0; letter-spacing: 0.04em;
+    font-weight: 300; color: #d5872d !important;
+    margin: 0; letter-spacing: 0.04em; text-align: center !important;
     position: relative; z-index: 1; line-height: 1.1;
 }
-.hero-amp { color: #d5872d; font-style: italic; }
+.hero-amp { color: #2c2416 !important; font-style: italic; }
 .hero-ornament { color: #d5872d; font-size: 1.4rem; margin: 18px 0; position: relative; z-index: 1; }
 .hero-date {
     font-family: 'Raleway', sans-serif;

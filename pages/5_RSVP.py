@@ -1,6 +1,6 @@
+import sys, os
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import streamlit as st
-import sys
-sys.path.insert(0, ".")
 from utils.styles import CSS, WEDDING_DATE_STR, LOCATION, nav_bar
 from utils.sheets import save_rsvp
 
@@ -13,7 +13,7 @@ st.markdown("""
     <p class="hero-eyebrow">Serez-vous des nôtres ?</p>
     <h1 class="hero-names" style="font-size:clamp(2rem,6vw,4rem);">Confirmer ma présence</h1>
     <div class="hero-ornament">✦</div>
-    <p class="hero-date">Merci de répondre avant le TODO: date limite</p>
+    <p class="hero-date">Merci de répondre avant le 1er Août 2026</p>
 </div>
 """, unsafe_allow_html=True)
 
@@ -72,11 +72,6 @@ else:
             min_value=1, max_value=20, value=1, step=1,
         )
 
-        regime = st.multiselect(
-            "Régime alimentaire (optionnel)",
-            ["Végétarien", "Végétalien", "Sans gluten", "Sans porc", "Allergie aux fruits de mer", "Autre"],
-        )
-
         message = st.text_area(
             "Un message pour les mariés (optionnel)",
             placeholder="Vos vœux, un mot doux…",
@@ -94,7 +89,7 @@ else:
                     "nom":          nom.strip(),
                     "presence":     presence,
                     "nb_personnes": nb_personnes,
-                    "regime":       ", ".join(regime),
+                    "regime":       "",
                     "message":      message.strip(),
                 })
                 st.session_state.rsvp_sent = True
