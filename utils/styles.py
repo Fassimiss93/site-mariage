@@ -182,17 +182,21 @@ body, .stApp { background-color: #f4f4f8; font-family: 'Raleway', sans-serif; }
 
 /* ── ENVELOPE INTRO ── */
 .env-checkbox { display: none; }
+@keyframes env-overlay-fade {
+    0%, 55% { opacity: 1; visibility: visible; }
+    100% { opacity: 0; visibility: hidden; }
+}
 .env-overlay {
     position: fixed; inset: 0; z-index: 999999; padding: 0 20px;
     display: flex; flex-direction: column; align-items: center; justify-content: center;
     background: linear-gradient(160deg, #2c2416 0%, #4a3728 55%, #7b7551 100%);
     cursor: pointer; box-sizing: border-box;
-    transition: opacity 0.9s ease 0.65s, visibility 0.9s ease 0.65s;
+    animation: env-overlay-fade 3.2s ease forwards;
 }
 .env-checkbox:checked + .env-overlay {
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
+    animation: none !important;
+    opacity: 0; visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
 }
 .envelope {
     position: relative; width: 260px; height: 175px; perspective: 1200px;
@@ -214,25 +218,33 @@ body, .stApp { background-color: #f4f4f8; font-family: 'Raleway', sans-serif; }
     background: linear-gradient(160deg, #f7efe0, #ecdfc3);
     box-shadow: 0 25px 60px rgba(0,0,0,0.45);
 }
+@keyframes env-letter-rise {
+    0%, 40% { transform: translateY(4px); }
+    100% { transform: translateY(-42px); }
+}
 .env-letter {
     position: absolute; left: 12px; right: 12px; bottom: 6px; height: 82%;
     background: #fffdf8; border-radius: 4px;
     box-shadow: 0 -2px 14px rgba(0,0,0,0.1);
     display: flex; align-items: center; justify-content: center;
-    transform: translateY(4px); transition: transform 0.7s ease 0.1s;
-    z-index: 2;
+    transform: translateY(4px); z-index: 2;
+    animation: env-letter-rise 3.2s ease forwards;
 }
 .env-letter-ornament {
     font-family: 'Cormorant Garamond', serif; font-size: 1rem;
     color: rgba(213,135,45,0.55); letter-spacing: 0.5em;
+}
+@keyframes env-flap-open {
+    0%, 30% { transform: rotateX(0deg); }
+    100% { transform: rotateX(180deg); }
 }
 .env-flap {
     position: absolute; top: 0; left: 0; width: 100%; height: 88px;
     background: linear-gradient(160deg, #f0e2c4, #e2cfa0);
     clip-path: polygon(0 0, 100% 0, 50% 100%);
     transform-origin: top center; transform-style: preserve-3d;
-    transition: transform 0.8s ease-in-out; z-index: 3;
-    filter: drop-shadow(0 6px 8px rgba(0,0,0,0.18));
+    z-index: 3; filter: drop-shadow(0 6px 8px rgba(0,0,0,0.18));
+    animation: env-flap-open 3.2s ease-in-out forwards;
 }
 .env-seal {
     position: absolute; top: 54px; left: 50%; transform: translate(-50%,-50%);
@@ -249,15 +261,22 @@ body, .stApp { background-color: #f4f4f8; font-family: 'Raleway', sans-serif; }
     0%, 100% { transform: translate(-50%,-50%) scale(1); }
     50% { transform: translate(-50%,-50%) scale(1.07); }
 }
-.env-checkbox:checked + .env-overlay .env-flap { transform: rotateX(180deg); }
+.env-checkbox:checked + .env-overlay .env-flap {
+    animation: none !important; transform: rotateX(180deg);
+    transition: transform 0.4s ease;
+}
 .env-checkbox:checked + .env-overlay .env-letter {
-    transform: translateY(-42px); transition: transform 0.7s ease 0.55s;
+    animation: none !important; transform: translateY(-42px);
+    transition: transform 0.4s ease;
 }
 .env-overlay.env-instant,
 .env-overlay.env-instant .env-flap,
 .env-overlay.env-instant .env-letter {
-    transition: none !important;
+    animation: none !important; transition: none !important;
 }
+.env-overlay.env-instant { opacity: 0 !important; visibility: hidden !important; }
+.env-overlay.env-instant .env-flap { transform: rotateX(180deg) !important; }
+.env-overlay.env-instant .env-letter { transform: translateY(-42px) !important; }
 .env-hint {
     margin: 32px auto 0; max-width: 260px; text-align: center;
     font-family: 'Raleway', sans-serif; font-size: 0.75rem;

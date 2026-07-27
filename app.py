@@ -38,7 +38,6 @@ st.markdown("""
             </svg>
         </div>
     </div>
-    <p class="env-hint">Cliquez sur l'enveloppe pour ouvrir votre invitation</p>
 </label>
 """, unsafe_allow_html=True)
 
