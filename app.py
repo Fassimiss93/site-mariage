@@ -22,8 +22,7 @@ st.markdown(CSS, unsafe_allow_html=True)
 
 # ── ENVELOPPE D'INTRODUCTION ─────────────────────────────────────────────────
 st.markdown("""
-<input type="checkbox" id="env-toggle" class="env-checkbox">
-<label for="env-toggle" class="env-overlay">
+<div id="env-overlay" class="env-overlay">
     <div class="envelope">
         <div class="env-back"></div>
         <div class="env-letter"><span class="env-letter-ornament">&#10022;</span></div>
@@ -38,24 +37,33 @@ st.markdown("""
             </svg>
         </div>
     </div>
-</label>
+</div>
 """, unsafe_allow_html=True)
 
 components.html("""
 <script>
 try {
-    var envChk = window.parent.document.getElementById('env-toggle');
-    if (envChk) {
-        if (window.parent.sessionStorage.getItem('envelope_opened') === '1') {
-            var overlay = envChk.nextElementSibling;
-            if (overlay) { overlay.classList.add('env-instant'); }
-            envChk.checked = true;
+    var doc = window.parent.document;
+    var overlay = doc.getElementById('env-overlay');
+    if (overlay && !overlay.dataset.envInit) {
+        overlay.dataset.envInit = '1';
+        var storage = window.parent.sessionStorage;
+
+        function markOpened() {
+            storage.setItem('envelope_opened', '1');
         }
-        envChk.addEventListener('change', function () {
-            if (envChk.checked) {
-                window.parent.sessionStorage.setItem('envelope_opened', '1');
-            }
-        });
+
+        if (storage.getItem('envelope_opened') === '1') {
+            overlay.classList.add('env-instant', 'env-open', 'env-hidden');
+        } else {
+            var t1 = setTimeout(function () { overlay.classList.add('env-open'); }, 700);
+            var t2 = setTimeout(function () { overlay.classList.add('env-hidden'); markOpened(); }, 2600);
+            overlay.addEventListener('click', function () {
+                clearTimeout(t1); clearTimeout(t2);
+                overlay.classList.add('env-open', 'env-hidden');
+                markOpened();
+            });
+        }
     }
 } catch (e) {}
 </script>
