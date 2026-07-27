@@ -183,10 +183,10 @@ body, .stApp { background-color: #f4f4f8; font-family: 'Raleway', sans-serif; }
 /* ── ENVELOPE INTRO ── */
 .env-checkbox { display: none; }
 .env-overlay {
-    position: fixed; inset: 0; z-index: 999999;
+    position: fixed; inset: 0; z-index: 999999; padding: 0 20px;
     display: flex; flex-direction: column; align-items: center; justify-content: center;
     background: linear-gradient(160deg, #2c2416 0%, #4a3728 55%, #7b7551 100%);
-    cursor: pointer;
+    cursor: pointer; box-sizing: border-box;
     transition: opacity 0.9s ease 0.65s, visibility 0.9s ease 0.65s;
 }
 .env-checkbox:checked + .env-overlay {
@@ -259,7 +259,8 @@ body, .stApp { background-color: #f4f4f8; font-family: 'Raleway', sans-serif; }
     transition: none !important;
 }
 .env-hint {
-    margin-top: 32px; font-family: 'Raleway', sans-serif; font-size: 0.75rem;
+    margin: 32px auto 0; max-width: 260px; text-align: center;
+    font-family: 'Raleway', sans-serif; font-size: 0.75rem;
     font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase;
     color: rgba(244,244,248,0.7);
 }

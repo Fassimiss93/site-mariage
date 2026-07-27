@@ -80,7 +80,9 @@ st.markdown(f"""
     <div style="position:relative;z-index:1;">
         <p class="hero-eyebrow">Vous êtes cordialement invités au mariage traditionnel de</p>
         <h1 class="hero-names" style="line-height:1.2;">
-            Adakou <span class="hero-amp">&amp;</span> Ata-Sé
+            Adakou<br>
+            <span class="hero-amp">&amp;</span><br>
+            Ata-Sé
         </h1>
         <div class="hero-ornament">✦ &nbsp; ✦ &nbsp; ✦</div>
         <p class="hero-date">Le {WEDDING_DATE_STR} &nbsp;·&nbsp; {LOCATION}</p>
