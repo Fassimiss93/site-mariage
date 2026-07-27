@@ -3,7 +3,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import streamlit as st
 from utils.styles import CSS, WEDDING_DATE_STR, COUPLE, LOCATION, nav_bar
 
-st.set_page_config(page_title="Programme — Adakou & Ata-Sé", page_icon="📅", layout="wide", initial_sidebar_state="collapsed")
+st.set_page_config(page_title="Programme — Adakou & Ata-Sé", page_icon="🗓️", layout="wide", initial_sidebar_state="collapsed")
 st.markdown(CSS, unsafe_allow_html=True)
 nav_bar()
 
@@ -22,11 +22,26 @@ st.markdown("""
     <p class="event-day">Samedi 29 août 2026</p>
     <h3 class="event-name">Cérémonie de mariage traditionnel</h3>
     <p class="event-detail">
-        🕣 À partir de 8h30<br>
-        📍 Attiegou, Lomé (Togo)<br><br>
-        Suivi de la réception au même lieu.
+        🕘 9h00 (GMT)<br>
+        📍 Attiegou, Lomé (Togo)
     </p>
     <a href="https://www.google.com/maps/search/?api=1&query=6.19304,1.26689"
+       target="_blank"
+       style="display:inline-block;margin-top:14px;padding:8px 20px;background:#d5872d;
+              color:white;border-radius:50px;font-family:Raleway,sans-serif;font-size:0.78rem;
+              font-weight:600;letter-spacing:0.1em;text-decoration:none;text-transform:uppercase;">
+        📍 Voir sur la carte
+    </a>
+</div>
+
+<div class="event-card">
+    <p class="event-day">Samedi 29 août 2026</p>
+    <h3 class="event-name">Réception</h3>
+    <p class="event-detail">
+        🕧 12h30 (GMT)<br>
+        📍 Salle de fête, Hôtel Mirambeau — Agbalepedogan (Togo)
+    </p>
+    <a href="https://maps.google.com/?q=6.199931594802086,1.1994550102522639"
        target="_blank"
        style="display:inline-block;margin-top:14px;padding:8px 20px;background:#d5872d;
               color:white;border-radius:50px;font-family:Raleway,sans-serif;font-size:0.78rem;
@@ -59,7 +74,7 @@ with col2:
                   color:white;border-radius:50px;text-decoration:none;
                   font-family:'Raleway',sans-serif;font-size:0.85rem;
                   font-weight:600;letter-spacing:0.15em;text-transform:uppercase;">
-            📅 Ajouter à Google Calendar
+            🗓️ Ajouter à Google Calendar
         </a>
     </div>
     """, unsafe_allow_html=True)

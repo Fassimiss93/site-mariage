@@ -1,6 +1,7 @@
 import sys, os, base64
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import streamlit as st
+import streamlit.components.v1 as components
 from datetime import date, datetime, timezone, timedelta
 from utils.styles import CSS, WEDDING_DATE_STR, COUPLE, LOCATION
 
@@ -18,6 +19,48 @@ st.set_page_config(
 )
 
 st.markdown(CSS, unsafe_allow_html=True)
+
+# ── ENVELOPPE D'INTRODUCTION ─────────────────────────────────────────────────
+st.markdown("""
+<input type="checkbox" id="env-toggle" class="env-checkbox">
+<label for="env-toggle" class="env-overlay">
+    <div class="envelope">
+        <div class="env-back"></div>
+        <div class="env-letter"><span class="env-letter-ornament">&#10022;</span></div>
+        <div class="env-flap"></div>
+        <div class="env-seal">
+            <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+                <text x="22" y="43" font-family="'Cormorant Garamond', serif" font-style="italic"
+                      font-weight="600" font-size="34" fill="#fdf6e8" text-anchor="middle">A</text>
+                <text x="22" y="43" font-family="'Cormorant Garamond', serif" font-style="italic"
+                      font-weight="600" font-size="34" fill="#fdf6e8" text-anchor="middle"
+                      opacity="0.5" transform="translate(64,0) scale(-1,1)">A</text>
+            </svg>
+        </div>
+    </div>
+    <p class="env-hint">Cliquez sur l'enveloppe pour ouvrir votre invitation</p>
+</label>
+""", unsafe_allow_html=True)
+
+components.html("""
+<script>
+try {
+    var envChk = window.parent.document.getElementById('env-toggle');
+    if (envChk) {
+        if (window.parent.sessionStorage.getItem('envelope_opened') === '1') {
+            var overlay = envChk.nextElementSibling;
+            if (overlay) { overlay.classList.add('env-instant'); }
+            envChk.checked = true;
+        }
+        envChk.addEventListener('change', function () {
+            if (envChk.checked) {
+                window.parent.sessionStorage.setItem('envelope_opened', '1');
+            }
+        });
+    }
+} catch (e) {}
+</script>
+""", height=0, width=0)
 
 # ── COMPTE À REBOURS ──────────────────────────────────────────────────────────
 LOME_TZ = timezone(timedelta(hours=0))  # Lomé = UTC+0, pas d'heure d'été
@@ -37,9 +80,7 @@ st.markdown(f"""
     <div style="position:relative;z-index:1;">
         <p class="hero-eyebrow">Vous êtes cordialement invités au mariage traditionnel de</p>
         <h1 class="hero-names" style="line-height:1.2;">
-            Adakou<br>
-            <span class="hero-amp">&amp;</span><br>
-            Ata-Sé
+            Adakou <span class="hero-amp">&amp;</span> Ata-Sé
         </h1>
         <div class="hero-ornament">✦ &nbsp; ✦ &nbsp; ✦</div>
         <p class="hero-date">Le {WEDDING_DATE_STR} &nbsp;·&nbsp; {LOCATION}</p>
@@ -68,12 +109,14 @@ st.markdown(f"""
 # ── MESSAGE D'ACCUEIL ─────────────────────────────────────────────────────────
 st.markdown("""
 <div class="section">
-    <h2 class="section-title">Bienvenue</h2>
+    <h2 class="section-title">Woezon !</h2>
     <div class="section-orn">✦</div>
     <p class="section-text">
-        C'est avec une immense joie et un cœur plein d'amour que nous vous convions<br>
-        à partager avec nous l'un des plus beaux jours de notre vie.<br><br>
-        Votre présence à nos côtés fera de cette célébration un souvenir inoubliable.
+        Chez nous, un mariage ne célèbre pas seulement l'union de deux personnes,<br>
+        mais celle de deux familles, de deux histoires et de tous ceux qui les entourent.<br><br>
+        Nous sommes profondément heureux de vous convier à ce moment de bonheur<br>
+        et de célébration de notre amour.<br><br>
+        Votre présence à nos côtés fera de ce jour spécial, un souvenir inoubliable.
     </p>
 </div>
 """, unsafe_allow_html=True)
@@ -96,7 +139,7 @@ with col_prog:
     <div class="nav-card" style="background:white;border-radius:12px;padding:26px 12px;
          text-align:center;box-shadow:0 2px 12px rgba(0,0,0,0.06);
          border-top:3px solid #d5872d;">
-        <span style="font-size:2rem;display:block;margin-bottom:10px;">📅</span>
+        <div class="cal-icon"><div class="cal-icon-top"></div><div class="cal-icon-day">29</div></div>
         <span style="font-family:'Raleway',sans-serif;font-size:0.82rem;font-weight:600;
               letter-spacing:0.1em;text-transform:uppercase;color:#7b7551;">Programme</span>
     </div>
@@ -114,7 +157,6 @@ with col_infos:
         <div style="margin-top:12px;font-family:'Raleway',sans-serif;font-size:0.8rem;
                     color:#5a5040;line-height:2;">
             👗 Dress Code<br>
-            🏨 Hébergement<br>
             📍 Comment nous rejoindre<br>
             ❓ FAQ
         </div>

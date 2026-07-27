@@ -34,10 +34,10 @@ body, .stApp { background-color: #f4f4f8; font-family: 'Raleway', sans-serif; }
     font-family: 'Cormorant Garamond', serif;
     font-size: clamp(3.2rem, 9vw, 6.5rem);
     font-weight: 300; color: #d5872d !important;
-    margin: 0; letter-spacing: 0.04em; text-align: center !important;
+    margin: 0; margin-right: -0.04em; letter-spacing: 0.04em; text-align: center !important;
     position: relative; z-index: 1; line-height: 1.1;
 }
-.hero-amp { color: #2c2416 !important; font-style: italic; }
+.hero-amp { color: #2c2416 !important; font-style: italic; margin: 0 0.12em; display: inline-block; }
 .hero-ornament { color: #d5872d; font-size: 1.4rem; margin: 18px 0; position: relative; z-index: 1; }
 .hero-date {
     font-family: 'Raleway', sans-serif;
@@ -155,6 +155,113 @@ body, .stApp { background-color: #f4f4f8; font-family: 'Raleway', sans-serif; }
 .faq-a {
     font-family: 'Raleway', sans-serif; font-weight: 300;
     color: #5a5040; font-size: 0.9rem; line-height: 1.7;
+}
+
+/* ── CALENDAR ICON ── */
+.cal-icon {
+    width: 42px; height: 42px; margin: 0 auto 10px;
+    border-radius: 7px; background: white; border: 2px solid #d5872d;
+    display: flex; flex-direction: column; overflow: visible;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08); position: relative;
+}
+.cal-icon-top {
+    height: 11px; background: #d5872d; border-radius: 4px 4px 0 0;
+    position: relative;
+}
+.cal-icon-top::before, .cal-icon-top::after {
+    content: ''; position: absolute; top: -3px; width: 4px; height: 8px;
+    background: #7b7551; border-radius: 2px;
+}
+.cal-icon-top::before { left: 9px; }
+.cal-icon-top::after { right: 9px; }
+.cal-icon-day {
+    flex: 1; display: flex; align-items: center; justify-content: center;
+    font-family: 'Cormorant Garamond', serif; font-weight: 700;
+    font-size: 1.25rem; color: #2c2416; line-height: 1;
+}
+
+/* ── ENVELOPE INTRO ── */
+.env-checkbox { display: none; }
+.env-overlay {
+    position: fixed; inset: 0; z-index: 999999;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    background: linear-gradient(160deg, #2c2416 0%, #4a3728 55%, #7b7551 100%);
+    cursor: pointer;
+    transition: opacity 0.9s ease 0.65s, visibility 0.9s ease 0.65s;
+}
+.env-checkbox:checked + .env-overlay {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+.envelope {
+    position: relative; width: 260px; height: 175px; perspective: 1200px;
+}
+.envelope::before, .envelope::after {
+    content: ''; position: absolute; bottom: 0; width: 0; height: 0;
+    border-style: solid; z-index: 1;
+}
+.envelope::before {
+    left: 0; border-width: 0 0 88px 130px;
+    border-color: transparent transparent rgba(0,0,0,0.06) transparent;
+}
+.envelope::after {
+    right: 0; border-width: 0 130px 88px 0;
+    border-color: transparent transparent rgba(0,0,0,0.06) transparent;
+}
+.env-back {
+    position: absolute; inset: 0; border-radius: 5px;
+    background: linear-gradient(160deg, #f7efe0, #ecdfc3);
+    box-shadow: 0 25px 60px rgba(0,0,0,0.45);
+}
+.env-letter {
+    position: absolute; left: 12px; right: 12px; bottom: 6px; height: 82%;
+    background: #fffdf8; border-radius: 4px;
+    box-shadow: 0 -2px 14px rgba(0,0,0,0.1);
+    display: flex; align-items: center; justify-content: center;
+    transform: translateY(4px); transition: transform 0.7s ease 0.1s;
+    z-index: 2;
+}
+.env-letter-ornament {
+    font-family: 'Cormorant Garamond', serif; font-size: 1rem;
+    color: rgba(213,135,45,0.55); letter-spacing: 0.5em;
+}
+.env-flap {
+    position: absolute; top: 0; left: 0; width: 100%; height: 88px;
+    background: linear-gradient(160deg, #f0e2c4, #e2cfa0);
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+    transform-origin: top center; transform-style: preserve-3d;
+    transition: transform 0.8s ease-in-out; z-index: 3;
+    filter: drop-shadow(0 6px 8px rgba(0,0,0,0.18));
+}
+.env-seal {
+    position: absolute; top: 54px; left: 50%; transform: translate(-50%,-50%);
+    width: 52px; height: 52px; border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%, #e6a13e, #b96a1a);
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.35), inset 0 1px 3px rgba(255,255,255,0.25),
+                inset 0 -2px 4px rgba(0,0,0,0.25);
+    z-index: 4;
+    animation: env-pulse 2.4s ease-in-out infinite;
+}
+.env-seal svg { display: block; width: 30px; height: 30px; }
+@keyframes env-pulse {
+    0%, 100% { transform: translate(-50%,-50%) scale(1); }
+    50% { transform: translate(-50%,-50%) scale(1.07); }
+}
+.env-checkbox:checked + .env-overlay .env-flap { transform: rotateX(180deg); }
+.env-checkbox:checked + .env-overlay .env-letter {
+    transform: translateY(-42px); transition: transform 0.7s ease 0.55s;
+}
+.env-overlay.env-instant,
+.env-overlay.env-instant .env-flap,
+.env-overlay.env-instant .env-letter {
+    transition: none !important;
+}
+.env-hint {
+    margin-top: 32px; font-family: 'Raleway', sans-serif; font-size: 0.75rem;
+    font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase;
+    color: rgba(244,244,248,0.7);
 }
 
 /* ── FOOTER ── */

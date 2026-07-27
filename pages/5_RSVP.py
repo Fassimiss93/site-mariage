@@ -13,7 +13,7 @@ st.markdown("""
     <p class="hero-eyebrow">Serez-vous des nôtres ?</p>
     <h1 class="hero-names" style="font-size:clamp(2rem,6vw,4rem);">Confirmer ma présence</h1>
     <div class="hero-ornament">✦</div>
-    <p class="hero-date">Merci de répondre avant le 1er Août 2026</p>
+    <p class="hero-date">Merci de répondre avant le 15 Août 2026</p>
 </div>
 """, unsafe_allow_html=True)
 

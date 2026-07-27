@@ -30,7 +30,7 @@ st.markdown("""
     <p style="font-family:'Raleway',sans-serif;font-weight:300;color:#5a5040;
               font-size:0.95rem;line-height:1.8;">
         <strong style="color:#2c2416;">Tenue blanche avec un tabla.</strong><br><br>
-        Le tissu du tabla est disponible à la vente auprès des mariés :<br>
+        Le tissu du tabla est disponible à la vente auprès des mariés<br>
         <strong style="color:#d5872d;">Femme :</strong> 3 000 FCFA &nbsp;·&nbsp;
         <strong style="color:#d5872d;">Homme :</strong> 1 500 FCFA
     </p>
@@ -75,7 +75,7 @@ st.markdown("""
 
 faqs = [
     ("Comment confirmer ma présence ?",
-     "Rendez-vous dans l'onglet RSVP de ce site et remplissez le formulaire de confirmation. Merci de confirmer votre présence avant le <strong style='color:#d5872d;'>1er Août 2026</strong>."),
+     "Rendez-vous dans l'onglet RSVP de ce site et remplissez le formulaire de confirmation. Merci de confirmer votre présence avant le <strong style='color:#d5872d;'>15 Août 2026</strong>."),
     ("Puis-je venir avec mes enfants ?",
      "Oui, les enfants sont les bienvenus ! Merci toutefois de le mentionner lors de votre confirmation de présence afin que nous puissions prévoir les dispositions nécessaires pour les accueillir dans les meilleures conditions."),
     ("Puis-je offrir un cadeau ?",
