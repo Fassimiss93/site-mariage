@@ -22,12 +22,12 @@ st.markdown("""
 <div style="background:white;border-radius:14px;padding:32px 36px;
             box-shadow:0 2px 16px rgba(0,0,0,0.07);margin-bottom:24px;
             border-top:4px solid #d5872d;">
-    <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.8rem;
+    <h3 style="font-family:'Playfair Display',serif;font-size:1.8rem;
                font-weight:400;color:#2c2416;margin-bottom:6px;">
         👗 Dress Code
     </h3>
     <div style="width:30px;height:2px;background:#d5872d;margin-bottom:16px;"></div>
-    <p style="font-family:'Raleway',sans-serif;font-weight:300;color:#5a5040;
+    <p style="font-family:'Poppins',sans-serif;font-weight:300;color:#5a5040;
               font-size:0.95rem;line-height:1.8;">
         <strong style="color:#2c2416;">Tenue blanche avec un tabla.</strong><br><br>
         Le tissu du tabla est disponible à la vente auprès des mariés<br>
@@ -42,12 +42,12 @@ st.markdown("""
 <div style="background:white;border-radius:14px;padding:32px 36px;
             box-shadow:0 2px 16px rgba(0,0,0,0.07);margin-bottom:32px;
             border-top:4px solid #d5872d;">
-    <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.8rem;
+    <h3 style="font-family:'Playfair Display',serif;font-size:1.8rem;
                font-weight:400;color:#2c2416;margin-bottom:6px;">
         📍 Comment nous rejoindre
     </h3>
     <div style="width:30px;height:2px;background:#d5872d;margin-bottom:16px;"></div>
-    <p style="font-family:'Raleway',sans-serif;font-weight:300;color:#5a5040;
+    <p style="font-family:'Poppins',sans-serif;font-weight:300;color:#5a5040;
               font-size:0.95rem;line-height:1.8;">
         <strong style="color:#2c2416;">Attiegou — Lomé (Togo)</strong><br>
         Non loin du Lycée Attiegou (ex CEG Attiegou)<br>
@@ -56,7 +56,7 @@ st.markdown("""
            target="_blank"
            style="display:inline-block;margin-top:8px;padding:10px 22px;
                   background:#d5872d;color:white;border-radius:8px;
-                  font-family:'Raleway',sans-serif;font-weight:600;font-size:0.88rem;
+                  font-family:'Poppins',sans-serif;font-weight:600;font-size:0.88rem;
                   letter-spacing:0.05em;text-decoration:none;">
             📍 Voir la localisation sur Maps
         </a>
@@ -66,7 +66,7 @@ st.markdown("""
 
 # ── FAQ ───────────────────────────────────────────────────────────────────────
 st.markdown("""
-<h2 style="font-family:'Cormorant Garamond',serif;font-size:2rem;
+<h2 style="font-family:'Playfair Display',serif;font-size:2rem;
            font-weight:400;color:#2c2416;text-align:center;margin-bottom:6px;">
     Questions fréquentes
 </h2>

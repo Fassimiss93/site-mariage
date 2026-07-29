@@ -20,9 +20,9 @@ if not st.session_state.admin_ok:
         <div style="background:white;border-radius:16px;padding:44px;
                     box-shadow:0 4px 30px rgba(0,0,0,0.1);text-align:center;">
             <div style="font-size:2.5rem;margin-bottom:16px;">🔐</div>
-            <h2 style="font-family:'Cormorant Garamond',serif;font-size:1.8rem;
+            <h2 style="font-family:'Playfair Display',serif;font-size:1.8rem;
                        color:#2c2416;margin-bottom:4px;">Espace admin</h2>
-            <p style="font-family:'Raleway',sans-serif;font-size:0.85rem;
+            <p style="font-family:'Poppins',sans-serif;font-size:0.85rem;
                       color:#7b7551;margin-bottom:24px;">Réservé aux mariés</p>
         </div>
     </div>

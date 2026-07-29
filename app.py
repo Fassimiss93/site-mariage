@@ -21,47 +21,47 @@ st.set_page_config(
 st.markdown(CSS, unsafe_allow_html=True)
 
 # ── ENVELOPPE D'INTRODUCTION ─────────────────────────────────────────────────
+# Purement en CSS (animation qui se joue toute seule + clic pour passer) afin que ça
+# fonctionne toujours, même si un bloqueur de pub empêche le composant JS ci-dessous.
 st.markdown("""
-<div id="env-overlay" class="env-overlay">
+<input type="checkbox" id="env-toggle" class="env-checkbox">
+<label for="env-toggle" class="env-overlay" id="env-overlay">
     <div class="envelope">
         <div class="env-back"></div>
         <div class="env-letter"><span class="env-letter-ornament">&#10022;</span></div>
         <div class="env-flap"></div>
         <div class="env-seal">
             <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-                <text x="22" y="43" font-family="'Cormorant Garamond', serif" font-style="italic"
+                <text x="22" y="43" font-family="'Playfair Display', serif" font-style="italic"
                       font-weight="600" font-size="34" fill="#fdf6e8" text-anchor="middle">A</text>
-                <text x="22" y="43" font-family="'Cormorant Garamond', serif" font-style="italic"
+                <text x="22" y="43" font-family="'Playfair Display', serif" font-style="italic"
                       font-weight="600" font-size="34" fill="#fdf6e8" text-anchor="middle"
                       opacity="0.5" transform="translate(64,0) scale(-1,1)">A</text>
             </svg>
         </div>
     </div>
-</div>
+</label>
 """, unsafe_allow_html=True)
 
+# Amélioration facultative : mémorise que l'enveloppe a déjà été vue pour ne pas la
+# rejouer en revenant sur l'accueil. Best-effort — si bloqué, l'enveloppe fonctionne
+# quand même (animation CSS garantie) mais se rejoue à chaque retour.
 components.html("""
 <script>
 try {
     var doc = window.parent.document;
+    var chk = doc.getElementById('env-toggle');
     var overlay = doc.getElementById('env-overlay');
-    if (overlay && !overlay.dataset.envInit) {
+    if (chk && overlay && !overlay.dataset.envInit) {
         overlay.dataset.envInit = '1';
         var storage = window.parent.sessionStorage;
-
-        function markOpened() {
-            storage.setItem('envelope_opened', '1');
-        }
-
         if (storage.getItem('envelope_opened') === '1') {
-            overlay.classList.add('env-instant', 'env-open', 'env-hidden');
+            overlay.classList.add('env-instant');
+            chk.checked = true;
         } else {
-            var t1 = setTimeout(function () { overlay.classList.add('env-open'); }, 700);
-            var t2 = setTimeout(function () { overlay.classList.add('env-hidden'); markOpened(); }, 2600);
-            overlay.addEventListener('click', function () {
-                clearTimeout(t1); clearTimeout(t2);
-                overlay.classList.add('env-open', 'env-hidden');
-                markOpened();
+            setTimeout(function () { storage.setItem('envelope_opened', '1'); }, 3300);
+            chk.addEventListener('change', function () {
+                if (chk.checked) { storage.setItem('envelope_opened', '1'); }
             });
         }
     }
@@ -136,54 +136,55 @@ st.markdown("""
     <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(150px,1fr)); gap:16px;">
 """, unsafe_allow_html=True)
 
-simple_nav = [
-    ("📅", "Programme", "pages/1_Programme"),
-    ("💌", "RSVP",      "pages/5_RSVP"),
-]
-
 col_prog, col_infos, col_rsvp = st.columns([1, 1.4, 1])
 
 with col_prog:
     st.markdown("""
+    <a href="Programme" target="_self" class="nav-card-link">
     <div class="nav-card" style="background:white;border-radius:12px;padding:26px 12px;
          text-align:center;box-shadow:0 2px 12px rgba(0,0,0,0.06);
          border-top:3px solid #d5872d;">
         <div class="cal-icon"><div class="cal-icon-top"></div><div class="cal-icon-day">29</div></div>
-        <span style="font-family:'Raleway',sans-serif;font-size:0.82rem;font-weight:600;
+        <span style="font-family:'Poppins',sans-serif;font-size:0.82rem;font-weight:600;
               letter-spacing:0.1em;text-transform:uppercase;color:#7b7551;">Programme</span>
+        <div class="nav-cta">→ Voir le programme</div>
     </div>
+    </a>
     """, unsafe_allow_html=True)
-    st.page_link("pages/1_Programme.py", label="→ Programme", use_container_width=True)
 
 with col_infos:
     st.markdown("""
+    <a href="Infos_pratiques" target="_self" class="nav-card-link">
     <div class="nav-card" style="background:white;border-radius:12px;padding:22px 16px;
          text-align:center;box-shadow:0 2px 12px rgba(0,0,0,0.06);
          border-top:3px solid #7b7551;">
         <span style="font-size:2rem;display:block;margin-bottom:6px;">ℹ️</span>
-        <span style="font-family:'Raleway',sans-serif;font-size:0.82rem;font-weight:600;
+        <span style="font-family:'Poppins',sans-serif;font-size:0.82rem;font-weight:600;
               letter-spacing:0.1em;text-transform:uppercase;color:#7b7551;">Infos pratiques</span>
-        <div style="margin-top:12px;font-family:'Raleway',sans-serif;font-size:0.8rem;
+        <div style="margin-top:12px;font-family:'Poppins',sans-serif;font-size:0.8rem;
                     color:#5a5040;line-height:2;">
             👗 Dress Code<br>
             📍 Comment nous rejoindre<br>
             ❓ FAQ
         </div>
+        <div class="nav-cta">→ Voir les infos pratiques</div>
     </div>
+    </a>
     """, unsafe_allow_html=True)
-    st.page_link("pages/4_Infos_pratiques.py", label="→ Infos pratiques", use_container_width=True)
 
 with col_rsvp:
     st.markdown("""
+    <a href="RSVP" target="_self" class="nav-card-link">
     <div class="nav-card" style="background:white;border-radius:12px;padding:26px 12px;
          text-align:center;box-shadow:0 2px 12px rgba(0,0,0,0.06);
          border-top:3px solid #d5872d;">
         <span style="font-size:2rem;display:block;margin-bottom:10px;">💌</span>
-        <span style="font-family:'Raleway',sans-serif;font-size:0.82rem;font-weight:600;
+        <span style="font-family:'Poppins',sans-serif;font-size:0.82rem;font-weight:600;
               letter-spacing:0.1em;text-transform:uppercase;color:#7b7551;">RSVP</span>
+        <div class="nav-cta">→ Confirmer ma présence</div>
     </div>
+    </a>
     """, unsafe_allow_html=True)
-    st.page_link("pages/5_RSVP.py", label="→ RSVP", use_container_width=True)
 
 # ── FOOTER ────────────────────────────────────────────────────────────────────
 st.markdown(f"""

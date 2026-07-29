@@ -28,7 +28,7 @@ st.markdown("""
     <a href="https://www.google.com/maps/search/?api=1&query=6.19304,1.26689"
        target="_blank"
        style="display:inline-block;margin-top:14px;padding:8px 20px;background:#d5872d;
-              color:white;border-radius:50px;font-family:Raleway,sans-serif;font-size:0.78rem;
+              color:white;border-radius:50px;font-family:Poppins,sans-serif;font-size:0.78rem;
               font-weight:600;letter-spacing:0.1em;text-decoration:none;text-transform:uppercase;">
         📍 Voir sur la carte
     </a>
@@ -44,7 +44,7 @@ st.markdown("""
     <a href="https://maps.google.com/?q=6.199931594802086,1.1994550102522639"
        target="_blank"
        style="display:inline-block;margin-top:14px;padding:8px 20px;background:#d5872d;
-              color:white;border-radius:50px;font-family:Raleway,sans-serif;font-size:0.78rem;
+              color:white;border-radius:50px;font-family:Poppins,sans-serif;font-size:0.78rem;
               font-weight:600;letter-spacing:0.1em;text-decoration:none;text-transform:uppercase;">
         📍 Voir sur la carte
     </a>
@@ -72,7 +72,7 @@ with col2:
            style="display:inline-block;padding:14px 36px;
                   background:linear-gradient(135deg,#d5872d,#c07020);
                   color:white;border-radius:50px;text-decoration:none;
-                  font-family:'Raleway',sans-serif;font-size:0.85rem;
+                  font-family:'Poppins',sans-serif;font-size:0.85rem;
                   font-weight:600;letter-spacing:0.15em;text-transform:uppercase;">
             🗓️ Ajouter à Google Calendar
         </a>

@@ -26,11 +26,11 @@ if st.session_state.rsvp_sent:
         <div style="background:white;border-radius:16px;padding:50px 44px;
                     box-shadow:0 4px 30px rgba(0,0,0,0.08);text-align:center;">
             <div style="font-size:3.5rem;margin-bottom:20px;">💌</div>
-            <h2 style="font-family:'Cormorant Garamond',serif;font-size:2rem;
+            <h2 style="font-family:'Playfair Display',serif;font-size:2rem;
                        font-weight:400;color:#2c2416;margin-bottom:12px;">
                 Merci pour votre réponse !
             </h2>
-            <p style="font-family:'Raleway',sans-serif;font-weight:300;
+            <p style="font-family:'Poppins',sans-serif;font-weight:300;
                       color:#5a5040;font-size:0.95rem;line-height:1.8;">
                 Votre confirmation a bien été enregistrée.<br>
                 Nous avons hâte de fêter ce jour avec vous ! 🎉
@@ -46,7 +46,7 @@ else:
     st.markdown('<div class="rsvp-wrap">', unsafe_allow_html=True)
     st.markdown("""
     <div class="rsvp-card">
-        <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.6rem;
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.6rem;
                    font-weight:400;color:#2c2416;margin-bottom:4px;">
             Votre confirmation
         </h3>
