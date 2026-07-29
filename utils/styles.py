@@ -121,16 +121,19 @@ body, .stApp { background-color: #f4f4f8; font-family: 'Poppins', sans-serif; }
 }
 
 /* ── LIEN RETOUR ACCUEIL (sous-pages) ── */
-.nav-back-link, .nav-back-link:visited, .nav-back-link:hover, .nav-back-link:active {
-    display: inline-block; text-decoration: none !important;
-    background: linear-gradient(135deg, #d5872d, #c07020); color: white !important;
-    padding: 8px 18px; border-radius: 50px;
-    font-family: 'Poppins', sans-serif; font-size: 0.8rem; font-weight: 700;
-    letter-spacing: 0.05em; box-shadow: 0 2px 8px rgba(213,135,45,0.35);
+div[data-testid="stPageLink"] { max-width: 170px; }
+a[data-testid="stPageLink-NavLink"] {
+    background: linear-gradient(135deg, #d5872d, #c07020) !important;
+    border-radius: 50px !important; padding: 8px 18px !important;
+    box-shadow: 0 2px 8px rgba(213,135,45,0.35);
     transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
-.nav-back-link:hover {
+a[data-testid="stPageLink-NavLink"]:hover {
     transform: translateY(-2px); box-shadow: 0 4px 14px rgba(213,135,45,0.45);
+}
+a[data-testid="stPageLink-NavLink"] p, a[data-testid="stPageLink-NavLink"] span {
+    color: white !important; font-family: 'Poppins', sans-serif !important;
+    font-weight: 700 !important; font-size: 0.8rem !important; letter-spacing: 0.05em;
 }
 
 /* ── PERSON CARD ── */
@@ -324,7 +327,9 @@ def nav_bar():
     import streamlit as st
     st.markdown("""
     <div style="background:white;border-bottom:1px solid rgba(213,135,45,0.2);
-                padding:12px 24px;margin-bottom:0;">
-        <a href="/" target="_self" class="nav-back-link">← Accueil</a>
+                padding:10px 24px;margin-bottom:0;">
     </div>
     """, unsafe_allow_html=True)
+    col1, col2 = st.columns([1, 8])
+    with col1:
+        st.page_link("app.py", label="← Accueil", use_container_width=True)
