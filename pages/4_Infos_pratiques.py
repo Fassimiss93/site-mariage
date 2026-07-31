@@ -27,7 +27,7 @@ st.markdown("""
         👗 Dress Code
     </h3>
     <div style="width:30px;height:2px;background:#d5872d;margin-bottom:16px;"></div>
-    <p style="font-family:'Poppins',sans-serif;font-weight:300;color:#5a5040;
+    <p style="font-family:'Poppins',sans-serif;font-weight:300;color:#3d3527;
               font-size:0.95rem;line-height:1.8;">
         <strong style="color:#2c2416;">Tenue blanche avec un tabla.</strong><br><br>
         Le tissu du tabla est disponible à la vente auprès des mariés<br>
@@ -47,7 +47,7 @@ st.markdown("""
         📍 Comment nous rejoindre
     </h3>
     <div style="width:30px;height:2px;background:#d5872d;margin-bottom:16px;"></div>
-    <p style="font-family:'Poppins',sans-serif;font-weight:300;color:#5a5040;
+    <p style="font-family:'Poppins',sans-serif;font-weight:300;color:#3d3527;
               font-size:0.95rem;line-height:1.8;">
         <strong style="color:#2c2416;">Attiegou — Lomé (Togo)</strong><br>
         Non loin du Lycée Attiegou (ex CEG Attiegou)<br>
@@ -76,8 +76,6 @@ st.markdown("""
 faqs = [
     ("Comment confirmer ma présence ?",
      "Rendez-vous dans l'onglet RSVP de ce site et remplissez le formulaire de confirmation. Merci de confirmer votre présence avant le <strong style='color:#d5872d;'>15 Août 2026</strong>."),
-    ("Puis-je venir avec mes enfants ?",
-     "Oui, les enfants sont les bienvenus ! Merci toutefois de le mentionner lors de votre confirmation de présence afin que nous puissions prévoir les dispositions nécessaires pour les accueillir dans les meilleures conditions."),
     ("Puis-je offrir un cadeau ?",
      "Votre présence est, à nos yeux, le plus beau des cadeaux. Cependant, si vous souhaitez nous faire un présent, nous vous serions reconnaissants de privilégier une enveloppe, pour des raisons pratiques de logistique. Merci infiniment pour votre générosité."),
     ("Vous avez d'autres questions ?",

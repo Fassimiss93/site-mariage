@@ -23,7 +23,7 @@ if not st.session_state.admin_ok:
             <h2 style="font-family:'Playfair Display',serif;font-size:1.8rem;
                        color:#2c2416;margin-bottom:4px;">Espace admin</h2>
             <p style="font-family:'Poppins',sans-serif;font-size:0.85rem;
-                      color:#7b7551;margin-bottom:24px;">Réservé aux mariés</p>
+                      color:#5c5738;margin-bottom:24px;">Réservé aux mariés</p>
         </div>
     </div>
     """, unsafe_allow_html=True)

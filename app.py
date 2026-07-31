@@ -146,7 +146,7 @@ with col_prog:
          border-top:3px solid #d5872d;">
         <div class="cal-icon"><div class="cal-icon-top"></div><div class="cal-icon-day">29</div></div>
         <span style="font-family:'Poppins',sans-serif;font-size:0.82rem;font-weight:600;
-              letter-spacing:0.1em;text-transform:uppercase;color:#7b7551;">Programme</span>
+              letter-spacing:0.1em;text-transform:uppercase;color:#5c5738;">Programme</span>
         <div class="nav-cta">→ Voir le programme</div>
     </div>
     </a>
@@ -160,9 +160,9 @@ with col_infos:
          border-top:3px solid #7b7551;">
         <span style="font-size:2rem;display:block;margin-bottom:6px;">ℹ️</span>
         <span style="font-family:'Poppins',sans-serif;font-size:0.82rem;font-weight:600;
-              letter-spacing:0.1em;text-transform:uppercase;color:#7b7551;">Infos pratiques</span>
+              letter-spacing:0.1em;text-transform:uppercase;color:#5c5738;">Infos pratiques</span>
         <div style="margin-top:12px;font-family:'Poppins',sans-serif;font-size:0.8rem;
-                    color:#5a5040;line-height:2;">
+                    color:#3d3527;line-height:2;">
             👗 Dress Code<br>
             📍 Comment nous rejoindre<br>
             ❓ FAQ
@@ -180,7 +180,7 @@ with col_rsvp:
          border-top:3px solid #d5872d;">
         <span style="font-size:2rem;display:block;margin-bottom:10px;">💌</span>
         <span style="font-family:'Poppins',sans-serif;font-size:0.82rem;font-weight:600;
-              letter-spacing:0.1em;text-transform:uppercase;color:#7b7551;">RSVP</span>
+              letter-spacing:0.1em;text-transform:uppercase;color:#5c5738;">RSVP</span>
         <div class="nav-cta">→ Confirmer ma présence</div>
     </div>
     </a>

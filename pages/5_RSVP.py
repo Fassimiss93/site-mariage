@@ -31,7 +31,7 @@ if st.session_state.rsvp_sent:
                 Merci pour votre réponse !
             </h2>
             <p style="font-family:'Poppins',sans-serif;font-weight:300;
-                      color:#5a5040;font-size:0.95rem;line-height:1.8;">
+                      color:#3d3527;font-size:0.95rem;line-height:1.8;">
                 Votre confirmation a bien été enregistrée.<br>
                 Nous avons hâte de fêter ce jour avec vous ! 🎉
             </p>

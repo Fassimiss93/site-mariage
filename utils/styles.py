@@ -67,7 +67,7 @@ body, .stApp { background-color: #f4f4f8; font-family: 'Poppins', sans-serif; }
     font-family: 'Poppins', sans-serif;
     font-size: 0.62rem; font-weight: 600;
     letter-spacing: 0.2em; text-transform: uppercase;
-    color: #7b7551; margin-top: 6px; display: block;
+    color: #5c5738; margin-top: 6px; display: block;
 }
 
 /* ── SECTIONS ── */
@@ -79,7 +79,7 @@ body, .stApp { background-color: #f4f4f8; font-family: 'Poppins', sans-serif; }
 .section-orn { color: #d5872d; font-size: 1.1rem; margin: 6px 0 22px; }
 .section-text {
     font-family: 'Poppins', sans-serif;
-    font-size: 1rem; font-weight: 300; color: #5a5040; line-height: 1.9;
+    font-size: 1rem; font-weight: 300; color: #3d3527; line-height: 1.9;
 }
 
 /* ── CARDS ── */
@@ -100,7 +100,7 @@ body, .stApp { background-color: #f4f4f8; font-family: 'Poppins', sans-serif; }
 }
 .event-detail {
     font-family: 'Poppins', sans-serif; font-size: 0.9rem;
-    font-weight: 400; color: #7b7551; margin-top: 10px; line-height: 1.7;
+    font-weight: 400; color: #5c5738; margin-top: 10px; line-height: 1.7;
 }
 
 /* ── NAV CARD (accueil) ── */
@@ -187,7 +187,7 @@ a[data-testid="stPageLink-NavLink"] p, a[data-testid="stPageLink-NavLink"] span 
 }
 .faq-a {
     font-family: 'Poppins', sans-serif; font-weight: 300;
-    color: #5a5040; font-size: 0.9rem; line-height: 1.7;
+    color: #3d3527; font-size: 0.9rem; line-height: 1.7;
 }
 
 /* ── CALENDAR ICON ── */
